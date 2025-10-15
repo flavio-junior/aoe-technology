@@ -1,20 +1,19 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    alias(notation = libs.plugins.android.application)
+    alias(notation = libs.plugins.kotlin.android)
+    alias(notation = libs.plugins.kotlin.compose)
+    alias(notation = libs.plugins.jetbrains.kotlin.serialization)
 }
 
 android {
     namespace = "br.com.jr.aoe.technology"
     compileSdk = 36
-
     defaultConfig {
         applicationId = "br.com.jr.aoe.technology"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -32,7 +31,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "11"
+        compileSdk = 11
     }
     buildFeatures {
         compose = true
@@ -40,20 +39,23 @@ android {
 }
 
 dependencies {
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.graphics)
-    implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.compose.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
-    debugImplementation(libs.androidx.compose.ui.tooling)
-    debugImplementation(libs.androidx.compose.ui.test.manifest)
+    implementation(dependencyNotation = libs.androidx.core.ktx)
+    implementation(dependencyNotation = libs.androidx.lifecycle.runtime.ktx)
+    implementation(dependencyNotation = libs.androidx.activity.compose)
+    implementation(dependencyNotation = platform(libs.androidx.compose.bom))
+    implementation(dependencyNotation = libs.androidx.compose.ui)
+    implementation(dependencyNotation = libs.androidx.compose.ui.graphics)
+    implementation(dependencyNotation = libs.androidx.compose.ui.tooling.preview)
+    implementation(dependencyNotation = libs.androidx.compose.material3)
+    implementation(dependencyNotation = libs.koin.androidx.compose)
+    implementation(dependencyNotation = libs.kotlinx.serialization.json)
+    implementation(dependencyNotation = libs.androidx.navigation.compose)
+    implementation(dependencyNotation = libs.retrofit)
+    testImplementation(dependencyNotation = libs.junit)
+    androidTestImplementation(dependencyNotation = libs.androidx.junit)
+    androidTestImplementation(dependencyNotation = libs.androidx.espresso.core)
+    androidTestImplementation(dependencyNotation = platform(libs.androidx.compose.bom))
+    androidTestImplementation(dependencyNotation = libs.androidx.compose.ui.test.junit4)
+    debugImplementation(dependencyNotation = libs.androidx.compose.ui.tooling)
+    debugImplementation(dependencyNotation = libs.androidx.compose.ui.test.manifest)
 }
