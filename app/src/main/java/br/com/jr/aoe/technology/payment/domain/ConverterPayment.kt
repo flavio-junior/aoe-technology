@@ -7,13 +7,13 @@ class ConverterPayment() {
 
     fun convertAllPaymentsDtoToVO(
         payments: List<PaymentResponseDTO>? = null
-    ): List<PaymentResponseVO>? {
+    ): List<PaymentResponseVO> {
         return payments?.map { payment ->
             PaymentResponseVO(
                 id = payment.id,
                 paymentDate = payment.paymentDate,
                 electricityBill = payment.electricityBill
             )
-        }
+        } ?: emptyList()
     }
 }

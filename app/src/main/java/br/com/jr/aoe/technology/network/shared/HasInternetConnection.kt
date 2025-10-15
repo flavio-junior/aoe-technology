@@ -7,7 +7,7 @@ import android.net.NetworkCapabilities
 fun hasInternetConnection(context: Context?) = try {
     val connectivityManager: ConnectivityManager =
         context?.getSystemService(Context.CONNECTIVITY_SERVICE)
-                as ConnectivityManager
+            as ConnectivityManager
     connectivityManager.activeNetwork?.let { activeNetwork ->
         connectivityManager.getNetworkCapabilities(activeNetwork)?.let { networkCapabilities ->
             when {

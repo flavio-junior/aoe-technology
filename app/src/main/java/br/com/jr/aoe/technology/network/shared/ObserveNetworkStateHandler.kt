@@ -1,6 +1,5 @@
 package br.com.jr.aoe.technology.network.shared
 
-
 sealed class ObserveNetworkStateHandler<T>(
     val status: NetworkStatus,
     val result: T? = null,
