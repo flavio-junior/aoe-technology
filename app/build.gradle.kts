@@ -50,7 +50,7 @@ dependencies {
     implementation(dependencyNotation = libs.koin.androidx.compose)
     implementation(dependencyNotation = libs.kotlinx.serialization.json)
     implementation(dependencyNotation = libs.androidx.navigation.compose)
-    implementation(dependencyNotation = libs.retrofit)
+    implementation(dependencyNotation = libs.bundles.retrofit)
     testImplementation(dependencyNotation = libs.junit)
     androidTestImplementation(dependencyNotation = libs.androidx.junit)
     androidTestImplementation(dependencyNotation = libs.androidx.espresso.core)
