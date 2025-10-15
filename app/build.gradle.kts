@@ -5,6 +5,8 @@ plugins {
     alias(notation = libs.plugins.jetbrains.kotlin.serialization)
 }
 
+apply(from = "${project.rootDir}/config/detekt/detekt.gradle")
+
 android {
     namespace = "br.com.jr.aoe.technology"
     compileSdk = 36
@@ -27,11 +29,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     kotlinOptions {
-        compileSdk = 11
+        jvmTarget = "21"
     }
     buildFeatures {
         compose = true
