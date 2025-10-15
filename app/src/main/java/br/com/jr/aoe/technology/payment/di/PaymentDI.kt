@@ -5,6 +5,7 @@ import br.com.jr.aoe.technology.payment.data.api.PaymentApiServiceImpl
 import br.com.jr.aoe.technology.payment.data.datasource.PaymentRemoteDataSource
 import br.com.jr.aoe.technology.payment.data.datasource.PaymentRemoteDataSourceImpl
 import br.com.jr.aoe.technology.payment.data.repository.PaymentRepositoryImpl
+import br.com.jr.aoe.technology.payment.domain.ConverterPayment
 import br.com.jr.aoe.technology.payment.ui.viewmodel.PaymentViewModel
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
@@ -18,6 +19,9 @@ val paymentModule = module {
     }
     single {
         PaymentRepositoryImpl(paymentRemoteDataSource = get())
+    }
+    single {
+        ConverterPayment()
     }
     viewModelOf(constructor = ::PaymentViewModel)
 }
