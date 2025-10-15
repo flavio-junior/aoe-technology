@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(notation = libs.plugins.android.application)
     alias(notation = libs.plugins.kotlin.android)
@@ -20,11 +22,32 @@ android {
     }
 
     buildTypes {
+        debug {
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            val proprieties = Properties()
+            proprieties.load(project.rootProject.file("local.properties").inputStream())
+            buildConfigField(
+                type = "String",
+                name = "URL_API",
+                value = "\"${proprieties.getProperty("URL_API_DEV")}\""
+            )
+        }
+
         release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
+            )
+            val proprieties = Properties()
+            proprieties.load(project.rootProject.file("local.properties").inputStream())
+            buildConfigField(
+                type = "String",
+                name = "URL_API",
+                value = "\"${proprieties.getProperty("URL_API_PROD")}\""
             )
         }
     }
@@ -36,6 +59,7 @@ android {
         jvmTarget = "21"
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
 }

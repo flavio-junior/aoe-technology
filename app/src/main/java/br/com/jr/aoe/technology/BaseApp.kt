@@ -2,6 +2,7 @@ package br.com.jr.aoe.technology
 
 import android.app.Application
 import br.com.jr.aoe.technology.account.di.accountModule
+import br.com.jr.aoe.technology.network.di.networkModule
 import br.com.jr.aoe.technology.payment.di.paymentModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -18,6 +19,7 @@ class BaseApp : Application() {
             modules(
                 modules = listOf(
                     accountModule,
+                    networkModule,
                     paymentModule
                 )
             )

@@ -8,5 +8,5 @@ data class LoginResponseDTO(
     val customerName: String? = "",
     val accountNumber: String? = "",
     val branchNumber: Long? = 0,
-    val checkingAccountBalance: Int? = 0,
+    val checkingAccountBalance: Int? = 0
 )

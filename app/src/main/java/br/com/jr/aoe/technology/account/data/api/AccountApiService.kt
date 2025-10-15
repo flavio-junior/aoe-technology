@@ -1,5 +1,10 @@
 package br.com.jr.aoe.technology.account.data.api
 
+import br.com.jr.aoe.technology.account.data.dto.LoginResponseDTO
+import retrofit2.Response
+import retrofit2.http.GET
+
 interface AccountApiService {
-    fun signIn()
+    @GET(value = "treinamento/Login")
+    suspend fun signIn(): Response<LoginResponseDTO>
 }
