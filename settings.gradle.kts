@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AOE TECNOLOGIA"
+rootProject.name = "AOE TECHNOLOGY"
 include(":app")
  
