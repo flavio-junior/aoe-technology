@@ -6,6 +6,7 @@ import br.com.jr.aoe.technology.account.data.datasource.AccountRemoteDataSource
 import br.com.jr.aoe.technology.account.data.datasource.AccountRemoteDataSourceImpl
 import br.com.jr.aoe.technology.account.data.repository.AccountRepository
 import br.com.jr.aoe.technology.account.data.repository.AccountRepositoryImpl
+import br.com.jr.aoe.technology.account.domain.ConverterAccount
 import br.com.jr.aoe.technology.account.ui.viewmodel.AccountViewModel
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
@@ -19,6 +20,9 @@ val accountModule = module {
     }
     single<AccountRepository> {
         AccountRepositoryImpl(accountRemoteDataSource = get())
+    }
+    single {
+        ConverterAccount()
     }
     viewModelOf(constructor = ::AccountViewModel)
 }
