@@ -1,68 +1,9 @@
-import java.util.Properties
-
 plugins {
-    alias(notation = libs.plugins.android.application)
-    alias(notation = libs.plugins.kotlin.android)
-    alias(notation = libs.plugins.kotlin.compose)
+    id(id = "br.com.jr.aoe.technology.application")
     alias(notation = libs.plugins.jetbrains.kotlin.serialization)
 }
 
 apply(from = "${project.rootDir}/config/detekt/detekt.gradle")
-
-android {
-    namespace = "br.com.jr.aoe.technology"
-    compileSdk = 36
-    defaultConfig {
-        applicationId = "br.com.jr.aoe.technology"
-        minSdk = 24
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        debug {
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-            val proprieties = Properties()
-            proprieties.load(project.rootProject.file("local.properties").inputStream())
-            buildConfigField(
-                type = "String",
-                name = "URL_API",
-                value = "\"${proprieties.getProperty("URL_API_DEV")}\""
-            )
-        }
-
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-            val proprieties = Properties()
-            proprieties.load(project.rootProject.file("local.properties").inputStream())
-            buildConfigField(
-                type = "String",
-                name = "URL_API",
-                value = "\"${proprieties.getProperty("URL_API_PROD")}\""
-            )
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
-    }
-    kotlinOptions {
-        jvmTarget = "21"
-    }
-    buildFeatures {
-        buildConfig = true
-        compose = true
-    }
-}
 
 dependencies {
     implementation(dependencyNotation = libs.androidx.core.ktx)

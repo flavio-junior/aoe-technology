@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -21,4 +22,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "AOE TECHNOLOGY"
 include(":app")
- 
+include(":core:design-system")
+include(":core:navigation")
+include(":core:network")
+include(":feature:account")
+include(":feature:payment")
+include(":feature:ui-shared")
