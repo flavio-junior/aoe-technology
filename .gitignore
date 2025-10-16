@@ -11,6 +11,7 @@
 *.rar
 
 *.idea
+*.kotlin
 *.gradle
 *local.properties
 *.iml
