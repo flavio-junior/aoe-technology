@@ -66,7 +66,6 @@ fun Description(
     )
 }
 
-
 @Composable
 fun InfoText(
     modifier: Modifier = Modifier,

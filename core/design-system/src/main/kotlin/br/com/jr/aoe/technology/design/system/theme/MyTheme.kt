@@ -5,11 +5,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
-import br.com.jr.aoe.technology.design.system.components.ProvideTextStyleDefault
 import br.com.jr.aoe.technology.design.system.colors.Colors
 import br.com.jr.aoe.technology.design.system.colors.DarkColor
 import br.com.jr.aoe.technology.design.system.colors.LightColor
 import br.com.jr.aoe.technology.design.system.colors.LocalColors
+import br.com.jr.aoe.technology.design.system.components.ProvideTextStyleDefault
 import br.com.jr.aoe.technology.design.system.specifications.LocalSpaces
 import br.com.jr.aoe.technology.design.system.specifications.SpaceSize
 import br.com.jr.aoe.technology.design.system.theme.Themes.size

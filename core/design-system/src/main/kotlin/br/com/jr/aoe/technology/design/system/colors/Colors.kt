@@ -40,6 +40,5 @@ class Colors(
         secondary = other.secondary
         background = other.background
         text = other.text
-
     }
 }

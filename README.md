@@ -24,6 +24,7 @@
 ### Commands of Gradle:
 - **Analysis the code: ` gradle detekt `**
 - **Clean project: ` gradle detekt --auto-correct `**
+- **Auto Correct in Specific Module: ` gradle :core:design-system:detekt --auto-correct `**
 
 ### Git - Accepted Standards for Commits and Pull Requests:
 - **feat:** **` Used when creating or adding a new feature. `**

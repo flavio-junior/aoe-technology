@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Icon
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -22,8 +21,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import br.com.jr.aoe.technology.design.system.factory.IconName
-import br.com.jr.aoe.technology.design.system.forms.onClickable
-import br.com.jr.aoe.technology.design.system.resources.getIconResource
 import br.com.jr.aoe.technology.design.system.settings.Settings
 import br.com.jr.aoe.technology.design.system.theme.Themes
 import br.com.jr.aoe.technology.design.system.typography.Typography
@@ -59,10 +56,7 @@ fun TextPassword(
             modifier = Modifier.fillMaxWidth(),
             visualTransformation = if (passwordHidden) PasswordVisualTransformation() else VisualTransformation.None,
             leadingIcon = {
-                Icon(
-                    painter = getIconResource(iconName = IconName.LOCK),
-                    contentDescription = Settings.EMPTY_TEXT
-                )
+                IconDefault(iconName = IconName.LOCK)
             },
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Password,
@@ -72,13 +66,11 @@ fun TextPassword(
                 onGo()
             }),
             trailingIcon = {
-                Icon(
-                    painter = if (passwordHidden) getIconResource(iconName = IconName.VISIBILITY)
-                    else getIconResource(iconName = IconName.VISIBILITY_OFF),
-                    contentDescription = Settings.EMPTY_TEXT,
-                    modifier = Modifier.onClickable(onClick = {
+                IconDefault(
+                    iconName = if (passwordHidden) IconName.VISIBILITY else IconName.VISIBILITY_OFF,
+                    onClick = {
                         passwordHidden = !passwordHidden
-                    })
+                    }
                 )
             },
             colors = TextFieldDefaults.textFieldColors(

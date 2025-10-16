@@ -12,6 +12,7 @@ fun getIconResource(
     IconName.ARROW_BACK -> painterResource(id = R.drawable.arrow_back)
     IconName.LOCK -> painterResource(id = R.drawable.lock)
     IconName.MAIL -> painterResource(id = R.drawable.mail)
+    IconName.LOGO -> painterResource(id = R.drawable.logo)
     IconName.VISIBILITY -> painterResource(id = R.drawable.visibility)
     IconName.VISIBILITY_OFF -> painterResource(id = R.drawable.visibility_off)
 }

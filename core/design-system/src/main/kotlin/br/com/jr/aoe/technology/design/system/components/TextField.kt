@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Icon
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -17,7 +16,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import br.com.jr.aoe.technology.design.system.factory.IconName
-import br.com.jr.aoe.technology.design.system.resources.getIconResource
 import br.com.jr.aoe.technology.design.system.settings.Settings
 import br.com.jr.aoe.technology.design.system.theme.Themes
 import br.com.jr.aoe.technology.design.system.typography.Typography
@@ -117,12 +115,7 @@ private fun TextFieldWithIcon(
             isError = isError,
             modifier = Modifier.fillMaxWidth(),
             leadingIcon = {
-                Icon(
-                    painter = getIconResource(iconName = iconName),
-                    contentDescription = label,
-                    tint = textColor
-                )
-
+                IconDefault(iconName = iconName)
             },
             textStyle = Typography(color = textColor).simpleText(),
             keyboardOptions = KeyboardOptions(
