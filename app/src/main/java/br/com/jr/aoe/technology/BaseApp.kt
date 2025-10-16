@@ -1,9 +1,9 @@
 package br.com.jr.aoe.technology
 
 import android.app.Application
-import br.com.jr.aoe.technology.account.di.accountModule
+import br.com.jr.aoe.technology.feature.account.di.accountModule
+import br.com.jr.aoe.technology.feature.payment.di.paymentModule
 import br.com.jr.aoe.technology.network.di.networkModule
-import br.com.jr.aoe.technology.payment.di.paymentModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

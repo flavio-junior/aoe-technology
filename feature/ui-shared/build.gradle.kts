@@ -15,6 +15,7 @@ dependencies {
     implementation(dependencyNotation = platform(libs.androidx.compose.bom))
     implementation(dependencyNotation = libs.androidx.compose.material3)
     implementation(dependencyNotation = libs.koin.androidx.compose)
+    implementation(dependencyNotation = libs.androidx.navigation.compose)
     implementation(dependencyNotation = project(path = Modules.CORE_DESIGN_SYSTEM))
     implementation(dependencyNotation = project(path = Modules.CORE_NAVIGATION))
     implementation(dependencyNotation = project(path = Modules.CORE_NETWORK))

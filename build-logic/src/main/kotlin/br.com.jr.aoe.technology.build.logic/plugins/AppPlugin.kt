@@ -9,7 +9,6 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import java.util.Properties
 
 class AppPlugin : Plugin<Project> {
 
@@ -47,37 +46,6 @@ class AppPlugin : Plugin<Project> {
                 versionCode = AppConfig.VERSION_CODE
                 versionName = AppConfig.VERSION_ANDROID
                 testInstrumentationRunner = AppConfig.TEST_INSTRUMENTATION_RUNNER
-            }
-
-            buildTypes {
-                debug {
-                    proguardFiles(
-                        getDefaultProguardFile("proguard-android-optimize.txt"),
-                        "proguard-rules.pro"
-                    )
-                    val proprieties = Properties()
-                    proprieties.load(target.rootProject.file("local.properties").inputStream())
-                    buildConfigField(
-                        type = "String",
-                        name = "URL_API",
-                        value = "\"${proprieties.getProperty("URL_API_DEV")}\""
-                    )
-                }
-
-                release {
-                    isMinifyEnabled = false
-                    proguardFiles(
-                        getDefaultProguardFile("proguard-android-optimize.txt"),
-                        "proguard-rules.pro"
-                    )
-                    val proprieties = Properties()
-                    proprieties.load(target.rootProject.file("local.properties").inputStream())
-                    buildConfigField(
-                        type = "String",
-                        name = "URL_API",
-                        value = "\"${proprieties.getProperty("URL_API_PROD")}\""
-                    )
-                }
             }
 
             packaging {
