@@ -12,5 +12,6 @@ android {
 
 dependencies {
     implementation(dependencyNotation = platform(libs.androidx.compose.bom))
+    implementation(dependencyNotation = libs.androidx.compose.material)
     implementation(dependencyNotation = libs.androidx.compose.material3)
 }

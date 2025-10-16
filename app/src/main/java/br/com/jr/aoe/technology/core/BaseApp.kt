@@ -1,4 +1,4 @@
-package br.com.jr.aoe.technology
+package br.com.jr.aoe.technology.core
 
 import android.app.Application
 import br.com.jr.aoe.technology.feature.account.di.accountModule
