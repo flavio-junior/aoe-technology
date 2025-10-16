@@ -17,9 +17,13 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        create("aoe.technology-application") {
+        create("aoe.technology.application") {
             id = "br.com.jr.aoe.technology.application"
             implementationClass = "br.com.jr.aoe.technology.build.logic.plugins.AppPlugin"
+        }
+        create("aoe.technology.library") {
+            id = "br.com.jr.aoe.technology.library"
+            implementationClass = "br.com.jr.aoe.technology.build.logic.plugins.LibraryPlugin"
         }
     }
 }

@@ -6,13 +6,7 @@ plugins {
 apply(from = "${project.rootDir}/config/detekt/detekt.gradle")
 
 dependencies {
-    implementation(dependencyNotation = libs.androidx.core.ktx)
-    implementation(dependencyNotation = libs.androidx.lifecycle.runtime.ktx)
-    implementation(dependencyNotation = libs.androidx.activity.compose)
     implementation(dependencyNotation = platform(libs.androidx.compose.bom))
-    implementation(dependencyNotation = libs.androidx.compose.ui)
-    implementation(dependencyNotation = libs.androidx.compose.ui.graphics)
-    implementation(dependencyNotation = libs.androidx.compose.ui.tooling.preview)
     implementation(dependencyNotation = libs.androidx.compose.material3)
     implementation(dependencyNotation = libs.koin.androidx.compose)
     implementation(dependencyNotation = libs.kotlinx.serialization.json)

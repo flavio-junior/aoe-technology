@@ -1,6 +1,5 @@
 package br.com.jr.aoe.technology.payment.di
 
-import br.com.jr.aoe.technology.account.data.api.AccountApiService
 import br.com.jr.aoe.technology.payment.data.api.PaymentApiService
 import br.com.jr.aoe.technology.payment.data.datasource.PaymentRemoteDataSource
 import br.com.jr.aoe.technology.payment.data.datasource.PaymentRemoteDataSourceImpl
