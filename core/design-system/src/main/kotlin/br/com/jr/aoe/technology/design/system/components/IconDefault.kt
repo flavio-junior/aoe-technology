@@ -19,6 +19,7 @@ fun IconDefault(
         contentDescription = null,
         modifier = Modifier
             .onClickable(onClick = onClick)
-            .size(size = Themes.size.spaceSize32)
+            .size(size = Themes.size.spaceSize32),
+        tint = Themes.colors.icon
     )
 }

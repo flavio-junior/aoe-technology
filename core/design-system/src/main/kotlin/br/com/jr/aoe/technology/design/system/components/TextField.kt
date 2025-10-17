@@ -1,6 +1,5 @@
 package br.com.jr.aoe.technology.design.system.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -27,8 +26,8 @@ fun TextField(
     label: String,
     value: String? = null,
     iconName: IconName? = null,
-    backgroundColor: Color = Themes.colors.background,
-    textColor: Color = Themes.colors.primary,
+    backgroundColor: Color = Themes.colors.inputBackground,
+    textColor: Color = Themes.colors.inputText,
     keyboardType: KeyboardType = KeyboardType.Text,
     imeAction: ImeAction = ImeAction.Next,
     maxLines: Int = Int.MAX_VALUE,
@@ -95,9 +94,7 @@ private fun TextFieldWithIcon(
     onGo: () -> Unit = {}
 ) {
     Column(
-        modifier = modifier
-            .background(color = backgroundColor)
-            .fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(space = Themes.size.spaceSize8)
     ) {
@@ -128,8 +125,8 @@ private fun TextFieldWithIcon(
             colors = TextFieldDefaults.textFieldColors(
                 backgroundColor = backgroundColor,
                 cursorColor = Themes.colors.primary,
-                focusedIndicatorColor = Themes.colors.primary,
-                unfocusedIndicatorColor = Themes.colors.primary
+                focusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent
             ),
             shape = RoundedCornerShape(size = Themes.size.spaceSize16)
         )
@@ -155,9 +152,7 @@ private fun TextFieldWithoutIcon(
     onGo: () -> Unit = {}
 ) {
     Column(
-        modifier = modifier
-            .background(color = backgroundColor)
-            .fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(space = Themes.size.spaceSize8)
     ) {
@@ -185,8 +180,8 @@ private fun TextFieldWithoutIcon(
             colors = TextFieldDefaults.textFieldColors(
                 backgroundColor = backgroundColor,
                 cursorColor = textColor,
-                focusedIndicatorColor = textColor,
-                unfocusedIndicatorColor = textColor
+                focusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent
             ),
             shape = RoundedCornerShape(size = Themes.size.spaceSize16)
         )

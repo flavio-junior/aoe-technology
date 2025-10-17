@@ -1,6 +1,5 @@
 package br.com.jr.aoe.technology.design.system.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,6 +15,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -39,7 +39,6 @@ fun TextPassword(
     var passwordHidden: Boolean by rememberSaveable { mutableStateOf(value = true) }
     Column(
         modifier = modifier
-            .background(color = Themes.colors.background)
             .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(space = Themes.size.spaceSize8)
@@ -50,7 +49,7 @@ fun TextPassword(
             textStyle = Typography(color = Themes.colors.primary).simpleText(),
             singleLine = true,
             label = {
-                Description(label = label)
+                Description(label = label, color = Themes.colors.inputText)
             },
             isError = isError,
             modifier = Modifier.fillMaxWidth(),
@@ -74,10 +73,10 @@ fun TextPassword(
                 )
             },
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = Themes.colors.background,
-                cursorColor = Themes.colors.primary,
-                focusedIndicatorColor = Themes.colors.primary,
-                unfocusedIndicatorColor = Themes.colors.primary
+                backgroundColor = Themes.colors.inputBackground,
+                cursorColor = Themes.colors.inputText,
+                focusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent
             ),
             shape = RoundedCornerShape(size = Themes.size.spaceSize16)
         )
