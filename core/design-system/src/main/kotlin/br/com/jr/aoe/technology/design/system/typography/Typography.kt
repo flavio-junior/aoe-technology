@@ -121,7 +121,10 @@ val LocalTypography = staticCompositionLocalOf {
 private fun selectFontFamily(typeFont: TypeFont): FontFamily {
     return when (typeFont) {
         TypeFont.BOLD -> FontFamily(Font(resId = R.font.nunito_bold))
+        TypeFont.EXTRA_BOLD -> FontFamily(Font(resId = R.font.nunito_extra_bold))
+        TypeFont.LIGHT -> FontFamily(Font(resId = R.font.nunito_light))
         TypeFont.MEDIUM -> FontFamily(Font(resId = R.font.nunito_medium))
         TypeFont.REGULAR -> FontFamily(Font(resId = R.font.nunito_regular))
+        TypeFont.SEMI_BOLD -> FontFamily(Font(resId = R.font.nunito_semi_bold))
     }
 }

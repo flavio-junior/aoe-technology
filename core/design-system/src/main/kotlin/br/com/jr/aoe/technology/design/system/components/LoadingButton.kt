@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import br.com.jr.aoe.technology.design.system.forms.onBorder
+import br.com.jr.aoe.technology.design.system.specifications.TypeFont
 import br.com.jr.aoe.technology.design.system.theme.Themes
 
 @Composable
@@ -34,8 +35,8 @@ fun LoadingButton(
                 onClick = {
                     listenerOnClick = !enabled
                 },
-                spaceSize = Themes.size.spaceSize16,
-                width = Themes.size.spaceSize2,
+                spaceSize = Themes.size.spaceSize12,
+                width = Themes.size.spaceSize0,
                 color = Themes.colors.primary
             )
             .background(color = background)
@@ -50,7 +51,11 @@ fun LoadingButton(
             CircularProgressIndicator()
         } else {
             listenerOnClick = false
-            Description(label = label)
+            Description(
+                label = label,
+                color = Themes.colors.lightText,
+                typeFont = TypeFont.EXTRA_BOLD
+            )
         }
     }
 }
