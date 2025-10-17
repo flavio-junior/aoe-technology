@@ -18,9 +18,6 @@ class LocalStorageViewModel(
     private val _getTokenSaved = MutableStateFlow<UiState<LoginResponseVO?>>(value = UiState.Init)
     val getTokenSaved = _getTokenSaved.asStateFlow()
 
-    private val _cleanToken = MutableStateFlow<UiState<Unit>>(value = UiState.Init)
-    val cleanToken = _cleanToken.asStateFlow()
-
     init {
         getToken()
     }
@@ -42,9 +39,7 @@ class LocalStorageViewModel(
 
     override fun cleanToken() {
         viewModelScope.launch {
-            _cleanToken.value = UiState.Loading
             localStorageRepository.cleanToken()
-            _cleanToken.value = UiState.OnSuccess(response = Unit)
         }
     }
 }

@@ -16,7 +16,8 @@ import br.com.jr.aoe.technology.design.system.theme.Themes
 fun Header(
     modifier: Modifier = Modifier,
     label: String,
-    align: Align = Align.START
+    align: Align = Align.START,
+    onClick: () -> Unit = {}
 ) {
     if (align == Align.CENTER) {
         Title(
@@ -31,7 +32,10 @@ fun Header(
             modifier = modifier.padding(vertical = Themes.size.spaceSize16),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            IconDefault(iconName = IconName.ARROW_BACK)
+            IconDefault(
+                iconName = IconName.ARROW_BACK,
+                onClick = onClick
+            )
             Title(
                 label = label,
                 modifier = Modifier
