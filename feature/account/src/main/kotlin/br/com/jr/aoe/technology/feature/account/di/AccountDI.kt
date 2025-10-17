@@ -8,7 +8,7 @@ import br.com.jr.aoe.technology.feature.account.data.repository.AccountRepositor
 import br.com.jr.aoe.technology.feature.account.domain.ConverterAccount
 import br.com.jr.aoe.technology.feature.account.ui.viewmodel.AccountViewModel
 import org.koin.android.ext.koin.androidContext
-import org.koin.core.module.dsl.viewModelOf
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 
@@ -25,5 +25,10 @@ val accountModule = module {
     single {
         ConverterAccount()
     }
-    viewModelOf(constructor = ::AccountViewModel)
+    viewModel {
+        AccountViewModel(
+            accountRepository = get(),
+            converter = get()
+        )
+    }
 }

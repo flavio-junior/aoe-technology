@@ -2,6 +2,7 @@ import br.com.jr.aoe.technology.build.logic.modules.Modules
 
 plugins {
     id(id = "br.com.jr.aoe.technology.application")
+    alias(notation = libs.plugins.jetbrains.kotlin.serialization)
 }
 
 apply(from = "${project.rootDir}/config/detekt/detekt.gradle")
@@ -23,6 +24,4 @@ dependencies {
     androidTestImplementation(dependencyNotation = libs.androidx.espresso.core)
     androidTestImplementation(dependencyNotation = platform(libs.androidx.compose.bom))
     androidTestImplementation(dependencyNotation = libs.androidx.compose.ui.test.junit4)
-    debugImplementation(dependencyNotation = libs.androidx.compose.ui.tooling)
-    debugImplementation(dependencyNotation = libs.androidx.compose.ui.test.manifest)
 }

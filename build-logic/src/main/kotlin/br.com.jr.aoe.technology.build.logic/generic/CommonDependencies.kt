@@ -40,4 +40,16 @@ fun installCommonDependencies(target: Project) {
             target.getLibrary(alias = "androidx-compose-ui-tooling-preview")
         )
     }
+    target.dependencies.apply {
+        add(
+            "debugImplementation",
+            target.getLibrary(alias = "androidx-compose-ui-tooling")
+        )
+    }
+    target.dependencies.apply {
+        add(
+            "debugImplementation",
+            target.getLibrary(alias = "androidx-compose-ui-test-manifest")
+        )
+    }
 }

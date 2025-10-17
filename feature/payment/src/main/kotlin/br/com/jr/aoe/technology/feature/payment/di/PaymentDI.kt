@@ -7,7 +7,7 @@ import br.com.jr.aoe.technology.feature.payment.data.repository.PaymentRepositor
 import br.com.jr.aoe.technology.feature.payment.domain.ConverterPayment
 import br.com.jr.aoe.technology.feature.payment.ui.viewmodel.PaymentViewModel
 import org.koin.android.ext.koin.androidContext
-import org.koin.core.module.dsl.viewModelOf
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 
@@ -24,5 +24,10 @@ val paymentModule = module {
     single {
         ConverterPayment()
     }
-    viewModelOf(constructor = ::PaymentViewModel)
+    viewModel {
+        PaymentViewModel(
+            paymentRepository = get(),
+            converter = get()
+        )
+    }
 }
