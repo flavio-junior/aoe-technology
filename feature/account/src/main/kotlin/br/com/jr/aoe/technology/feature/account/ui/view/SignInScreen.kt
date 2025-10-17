@@ -23,15 +23,41 @@ import br.com.jr.aoe.technology.design.system.components.LoadingButton
 import br.com.jr.aoe.technology.design.system.components.TextField
 import br.com.jr.aoe.technology.design.system.components.TextPassword
 import br.com.jr.aoe.technology.design.system.factory.IconName
+import br.com.jr.aoe.technology.design.system.resources.isNotBlankAndEmpty
+import br.com.jr.aoe.technology.design.system.resources.validateEmail
 import br.com.jr.aoe.technology.design.system.settings.Align
 import br.com.jr.aoe.technology.design.system.settings.Settings
 import br.com.jr.aoe.technology.design.system.theme.Themes
 import br.com.jr.aoe.technology.feature.account.R
+import br.com.jr.aoe.technology.feature.account.ui.viewmodel.AccountViewModel
+import br.com.jr.aoe.technology.network.shared.Exceptions
+import br.com.jr.aoe.technology.network.shared.Observer
+import br.com.jr.aoe.technology.network.shared.enabledObserver
+import br.com.jr.aoe.technology.network.shared.invalidEmail
+import br.com.jr.aoe.technology.network.shared.notBlankOrEmpty
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun SignInScreen() {
+fun SignInScreen(
+    goToAlternativeRoutes: (Exceptions) -> Unit = {},
+) {
+    val viewModel: AccountViewModel = koinViewModel()
     var email: String by remember { mutableStateOf(value = Settings.EMPTY_TEXT) }
     var password: String by remember { mutableStateOf(value = Settings.EMPTY_TEXT) }
+    var observer: Observer by remember { mutableStateOf(value = Observer()) }
+    val checkSignIn: (String, String) -> Unit =
+        { emailArg: String, passwordArg: String ->
+            verifyFieldsToSignInScreen(
+                triple = Triple(
+                    first = emailArg,
+                    second = passwordArg,
+                    third = viewModel
+                ),
+                onError = {
+                    observer = it
+                }
+            )
+        }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -48,8 +74,10 @@ fun SignInScreen() {
             TextField(
                 label = stringResource(id = R.string.email),
                 value = email,
+                iconName = IconName.MAIL,
                 keyboardType = KeyboardType.Email,
                 imeAction = ImeAction.Next,
+                isError = observer.error,
                 onValueChange = {
                     email = it
                 }
@@ -58,17 +86,47 @@ fun SignInScreen() {
                 label = stringResource(id = R.string.password),
                 value = password,
                 imeAction = ImeAction.Go,
+                isError = observer.error,
+                message = observer.message,
                 onValueChange = {
                     password = it
+                },
+                onGo = {
+                    checkSignIn(email, password)
                 }
             )
             LoadingButton(
                 label = stringResource(id = R.string.sign_in),
+                isEnabled = observer.enabled,
                 onClick = {
-
+                    observer = enabledObserver
+                    checkSignIn(email, password)
                 }
             )
             Spacer(modifier = Modifier.height(height = Themes.size.spaceSize64))
         }
+    }
+    UiResponseSingInScreen(
+        viewModel = viewModel,
+        goToAlternativeRoutes = goToAlternativeRoutes,
+        onError = {
+            observer = it
+        }
+    )
+}
+
+private fun verifyFieldsToSignInScreen(
+    triple: Triple<String, String, AccountViewModel>,
+    onError: (Observer) -> Unit = {}
+) {
+    if (triple.first.isNotBlankAndEmpty() && triple.second.isNotBlankAndEmpty()) {
+        if (validateEmail(email = triple.first)) {
+            onError(enabledObserver)
+            triple.third.signIn(email = triple.first)
+        } else {
+            onError(invalidEmail)
+        }
+    } else {
+        onError(notBlankOrEmpty)
     }
 }
