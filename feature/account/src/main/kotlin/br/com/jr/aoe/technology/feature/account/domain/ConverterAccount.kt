@@ -1,7 +1,7 @@
 package br.com.jr.aoe.technology.feature.account.domain
 
+import br.com.jr.aoe.technology.common.account.vo.LoginResponseVO
 import br.com.jr.aoe.technology.feature.account.data.dto.LoginResponseDTO
-import br.com.jr.aoe.technology.feature.account.data.vo.LoginResponseVO
 
 class ConverterAccount {
 

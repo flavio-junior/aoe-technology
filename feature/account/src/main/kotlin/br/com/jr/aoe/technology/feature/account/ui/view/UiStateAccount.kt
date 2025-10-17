@@ -3,7 +3,7 @@ package br.com.jr.aoe.technology.feature.account.ui.view
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import br.com.jr.aoe.technology.feature.account.data.vo.LoginResponseVO
+import br.com.jr.aoe.technology.common.account.vo.LoginResponseVO
 import br.com.jr.aoe.technology.feature.account.ui.viewmodel.AccountViewModel
 import br.com.jr.aoe.technology.network.shared.Exceptions
 import br.com.jr.aoe.technology.network.shared.Observer
@@ -15,10 +15,10 @@ fun UiResponseSingInScreen(
     viewModel: AccountViewModel,
     goToAlternativeRoutes: (Exceptions) -> Unit = {},
     onError: (Observer) -> Unit = {},
-    onResult: @Composable (LoginResponseVO) -> Unit = {}
+    onResult: @Composable () -> Unit = {}
 ) {
     val uiState: UiState<LoginResponseVO>
-            by viewModel.loginResponseVO.collectAsStateWithLifecycle()
+        by viewModel.loginResponseVO.collectAsStateWithLifecycle()
     UiResponse(
         state = uiState,
         onError = {
@@ -26,8 +26,9 @@ fun UiResponseSingInScreen(
         },
         goToAlternativeRoutes = goToAlternativeRoutes,
         onSuccess = {
+            viewModel.saveToken(loginResponseVO = it)
             viewModel.resetScreen()
-            onResult(it)
+            onResult()
         }
     )
 }

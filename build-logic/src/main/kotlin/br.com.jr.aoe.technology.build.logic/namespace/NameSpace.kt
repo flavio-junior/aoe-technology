@@ -1,6 +1,8 @@
 package br.com.jr.aoe.technology.build.logic.namespace
 
 object NameSpace {
+    const val CORE_CRYPTOGRAPHY = "br.com.jr.aoe.technology.cryptography"
+    const val CORE_COMMON = "br.com.jr.aoe.technology.common"
     const val CORE_DESIGN_SYSTEM = "br.com.jr.aoe.technology.design.system"
     const val CORE_NAVIGATION = "br.com.jr.aoe.technology.navigation"
     const val CORE_NETWORK = "br.com.jr.aoe.technology.network"

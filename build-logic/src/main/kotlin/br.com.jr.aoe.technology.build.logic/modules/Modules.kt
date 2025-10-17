@@ -1,6 +1,8 @@
 package br.com.jr.aoe.technology.build.logic.modules
 
 object Modules {
+    const val CORE_CRYPTOGRAPHY = ":core:cryptography"
+    const val CORE_COMMON = ":core:common"
     const val CORE_DESIGN_SYSTEM = ":core:design-system"
     const val CORE_NAVIGATION = ":core:navigation"
     const val CORE_NETWORK = ":core:network"

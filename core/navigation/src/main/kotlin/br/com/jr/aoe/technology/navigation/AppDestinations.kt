@@ -8,6 +8,5 @@ sealed interface AppDestinations {
     data object Account : AppDestinations
 
     @Serializable
-
     data object Payment : AppDestinations
 }

@@ -22,6 +22,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "AOE TECHNOLOGY"
 include(":app")
+include(":core:cryptography")
+include(":core:common")
 include(":core:design-system")
 include(":core:navigation")
 include(":core:network")

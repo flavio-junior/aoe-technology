@@ -23,4 +23,5 @@ dependencies {
     implementation(dependencyNotation = project(path = Modules.CORE_DESIGN_SYSTEM))
     implementation(dependencyNotation = project(path = Modules.CORE_NAVIGATION))
     implementation(dependencyNotation = project(path = Modules.CORE_NETWORK))
+    implementation(dependencyNotation = project(path = Modules.CORE_COMMON))
 }

@@ -28,7 +28,8 @@ val accountModule = module {
     viewModel {
         AccountViewModel(
             accountRepository = get(),
-            converter = get()
+            converter = get(),
+            localStorageDataSource = get()
         )
     }
 }

@@ -1,12 +1,12 @@
-package br.com.jr.aoe.technology.feature.account.data.vo
+package br.com.jr.aoe.technology.common.account.vo
 
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class LoginResponseVO(
-    val id: Long? = 0,
+    val id: String? = "",
     val customerName: String? = "",
     val accountNumber: String? = "",
-    val branchNumber: Long? = 0,
-    val checkingAccountBalance: Int? = 0,
+    val branchNumber: String? = "",
+    val checkingAccountBalance: String? = ""
 )
