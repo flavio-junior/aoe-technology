@@ -128,7 +128,7 @@ private fun TextFieldWithIcon(
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent
             ),
-            shape = RoundedCornerShape(size = Themes.size.spaceSize16)
+            shape = RoundedCornerShape(size = Themes.size.spaceSize12)
         )
         IsErrorMessage(isError = isError, message = message)
     }
@@ -183,7 +183,7 @@ private fun TextFieldWithoutIcon(
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent
             ),
-            shape = RoundedCornerShape(size = Themes.size.spaceSize16)
+            shape = RoundedCornerShape(size = Themes.size.spaceSize12)
         )
         IsErrorMessage(isError = isError, message = message)
     }
