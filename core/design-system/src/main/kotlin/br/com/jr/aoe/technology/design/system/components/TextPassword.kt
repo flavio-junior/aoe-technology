@@ -22,6 +22,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import br.com.jr.aoe.technology.design.system.factory.IconName
 import br.com.jr.aoe.technology.design.system.settings.Settings
+import br.com.jr.aoe.technology.design.system.specifications.TypeFont
 import br.com.jr.aoe.technology.design.system.theme.Themes
 import br.com.jr.aoe.technology.design.system.typography.Typography
 
@@ -49,7 +50,11 @@ fun TextPassword(
             textStyle = Typography(color = Themes.colors.primary).simpleText(),
             singleLine = true,
             label = {
-                Description(label = label, color = Themes.colors.inputText)
+                Description(
+                    label = label,
+                    color = Themes.colors.inputText,
+                    typeFont = TypeFont.LIGHT
+                )
             },
             isError = isError,
             modifier = Modifier.fillMaxWidth(),

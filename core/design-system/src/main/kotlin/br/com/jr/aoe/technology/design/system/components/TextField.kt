@@ -16,6 +16,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import br.com.jr.aoe.technology.design.system.factory.IconName
 import br.com.jr.aoe.technology.design.system.settings.Settings
+import br.com.jr.aoe.technology.design.system.specifications.TypeFont
 import br.com.jr.aoe.technology.design.system.theme.Themes
 import br.com.jr.aoe.technology.design.system.typography.Typography
 
@@ -107,7 +108,11 @@ private fun TextFieldWithIcon(
             maxLines = maxLines,
             singleLine = singleLine,
             label = {
-                Description(label = label, color = textColor)
+                Description(
+                    label = label,
+                    color = textColor,
+                    typeFont = TypeFont.LIGHT
+                )
             },
             isError = isError,
             modifier = Modifier.fillMaxWidth(),
@@ -165,7 +170,11 @@ private fun TextFieldWithoutIcon(
             maxLines = maxLines,
             singleLine = singleLine,
             label = {
-                InfoText(label = label, color = textColor)
+                Description(
+                    label = label,
+                    color = textColor,
+                    typeFont = TypeFont.LIGHT
+                )
             },
             isError = isError,
             modifier = Modifier.fillMaxWidth(),
