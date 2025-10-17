@@ -1,4 +1,4 @@
-package br.com.jr.aoe.technology.network.ui
+package br.com.jr.aoe.technology.network.ui.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

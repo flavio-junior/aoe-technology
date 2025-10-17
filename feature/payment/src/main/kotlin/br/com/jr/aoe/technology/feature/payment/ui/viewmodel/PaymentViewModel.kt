@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import br.com.jr.aoe.technology.feature.payment.data.repository.PaymentRepository
 import br.com.jr.aoe.technology.feature.payment.data.vo.PaymentResponseVO
 import br.com.jr.aoe.technology.feature.payment.domain.ConverterPayment
-import br.com.jr.aoe.technology.network.ui.UiState
-import br.com.jr.aoe.technology.network.ui.launchRequestWithResponse
+import br.com.jr.aoe.technology.network.ui.view.UiState
+import br.com.jr.aoe.technology.network.ui.view.launchRequestWithResponse
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 

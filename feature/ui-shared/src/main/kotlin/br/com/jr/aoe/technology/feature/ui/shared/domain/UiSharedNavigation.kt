@@ -8,7 +8,7 @@ import br.com.jr.aoe.technology.navigation.AppDestinations
 fun NavGraphBuilder.uiSharedNavigation(
     navController: NavHostController
 ) {
-    composable<AppDestinations.Payment> {
+    composable<AppDestinations.UiShared> {
 
     }
 }

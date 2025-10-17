@@ -9,4 +9,7 @@ sealed interface AppDestinations {
 
     @Serializable
     data object Payment : AppDestinations
+
+    @Serializable
+    data object UiShared : AppDestinations
 }

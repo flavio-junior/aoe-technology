@@ -1,4 +1,4 @@
-package br.com.jr.aoe.technology.network.ui
+package br.com.jr.aoe.technology.network.ui.view
 
 import androidx.compose.runtime.Composable
 import br.com.jr.aoe.technology.network.shared.DescriptionError

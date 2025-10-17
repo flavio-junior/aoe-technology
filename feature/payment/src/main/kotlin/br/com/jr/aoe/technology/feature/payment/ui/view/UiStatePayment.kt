@@ -7,8 +7,8 @@ import br.com.jr.aoe.technology.design.system.LoadingData
 import br.com.jr.aoe.technology.feature.payment.data.vo.PaymentResponseVO
 import br.com.jr.aoe.technology.feature.payment.ui.viewmodel.PaymentViewModel
 import br.com.jr.aoe.technology.network.shared.Exceptions
-import br.com.jr.aoe.technology.network.ui.UiResponse
-import br.com.jr.aoe.technology.network.ui.UiState
+import br.com.jr.aoe.technology.network.ui.view.UiResponse
+import br.com.jr.aoe.technology.network.ui.view.UiState
 
 @Composable
 fun UiResponseFindAllPaymentsScreen(
