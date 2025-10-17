@@ -27,7 +27,11 @@ fun Title(
     BasicText(
         text = label ?: Settings.EMPTY_TEXT,
         modifier = modifier,
-        style = Typography(color = color, textAlign = textAlign, typeFont = typeFont).title(),
+        style = Typography(
+            color = color,
+            textAlign = textAlign,
+            typeFont = typeFont
+        ).title(),
         maxLines = maxLines
     )
 }
@@ -44,7 +48,11 @@ fun SubTitle(
     BasicText(
         text = label ?: Settings.EMPTY_TEXT,
         modifier = modifier,
-        style = Typography(color = color, textAlign = textAlign, typeFont = typeFont).subTitle(),
+        style = Typography(
+            color = color,
+            textAlign = textAlign,
+            typeFont = typeFont
+        ).subTitle(),
         maxLines = maxLines
     )
 }
@@ -61,7 +69,11 @@ fun Description(
     BasicText(
         text = label ?: Settings.EMPTY_TEXT,
         modifier = modifier,
-        style = Typography(color = color, textAlign = textAlign, typeFont = typeFont).description(),
+        style = Typography(
+            color = color,
+            textAlign = textAlign,
+            typeFont = typeFont
+        ).description(),
         maxLines = maxLines
     )
 }
@@ -78,7 +90,11 @@ fun InfoText(
     BasicText(
         text = label ?: Settings.EMPTY_TEXT,
         modifier = modifier,
-        style = Typography(color = color, textAlign = textAlign, typeFont = typeFont).infoText(),
+        style = Typography(
+            color = color,
+            textAlign = textAlign,
+            typeFont = typeFont
+        ).infoText(),
         maxLines = maxLines
     )
 }
