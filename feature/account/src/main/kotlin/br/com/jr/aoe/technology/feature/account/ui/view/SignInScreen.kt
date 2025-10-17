@@ -23,8 +23,10 @@ import br.com.jr.aoe.technology.design.system.components.LoadingButton
 import br.com.jr.aoe.technology.design.system.components.TextField
 import br.com.jr.aoe.technology.design.system.components.TextPassword
 import br.com.jr.aoe.technology.design.system.factory.IconName
+import br.com.jr.aoe.technology.design.system.resources.GenericsNumbers
 import br.com.jr.aoe.technology.design.system.resources.isNotBlankAndEmpty
 import br.com.jr.aoe.technology.design.system.resources.validateEmail
+import br.com.jr.aoe.technology.design.system.resources.validatePassword
 import br.com.jr.aoe.technology.design.system.settings.Align
 import br.com.jr.aoe.technology.design.system.settings.Settings
 import br.com.jr.aoe.technology.design.system.theme.Themes
@@ -35,7 +37,9 @@ import br.com.jr.aoe.technology.network.shared.Exceptions
 import br.com.jr.aoe.technology.network.shared.Observer
 import br.com.jr.aoe.technology.network.shared.enabledObserver
 import br.com.jr.aoe.technology.network.shared.invalidEmail
+import br.com.jr.aoe.technology.network.shared.invalidPassword
 import br.com.jr.aoe.technology.network.shared.notBlankOrEmpty
+import br.com.jr.aoe.technology.network.shared.passwordErrorSize
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -126,8 +130,14 @@ private fun verifyFieldsToSignInScreen(
 ) {
     if (triple.first.isNotBlankAndEmpty() && triple.second.isNotBlankAndEmpty()) {
         if (validateEmail(email = triple.first)) {
-            onError(enabledObserver)
-            triple.third.signIn(email = triple.first)
+            if (validatePassword(password = triple.second)) {
+                onError(enabledObserver)
+                triple.third.signIn(email = triple.first)
+            } else if (triple.second.length < GenericsNumbers.NUMBER_SIX) {
+                onError(passwordErrorSize)
+            } else {
+                onError(invalidPassword)
+            }
         } else {
             onError(invalidEmail)
         }

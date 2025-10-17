@@ -34,4 +34,8 @@ class AccountViewModel(
                 UiState.Error(error = DescriptionError(message = Warnings.INVALID_EMAIL))
         }
     }
+
+    override fun resetScreen() {
+        _loginResponseVO.value = UiState.Init
+    }
 }

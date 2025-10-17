@@ -26,6 +26,7 @@ fun UiResponseSingInScreen(
         },
         goToAlternativeRoutes = goToAlternativeRoutes,
         onSuccess = {
+            viewModel.resetScreen()
             onResult(it)
         }
     )

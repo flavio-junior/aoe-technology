@@ -1,14 +1,19 @@
 package br.com.jr.aoe.technology.design.system.resources
 
-fun checkNameIsNull(name: String): Boolean {
-    return (name.isEmpty())
-}
-
-fun validateEmail(email: String): Boolean {
+fun validateEmail(
+    email: String
+): Boolean {
     val emailRegex = Regex(
         pattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$"
     )
     return emailRegex.matches(input = email)
+}
+
+fun validatePassword(
+    password: String
+): Boolean {
+    val passwordRegex = Regex(pattern = "^(?=.*[A-Za-z])(?=.*\\d).+$")
+    return passwordRegex.matches(input = password)
 }
 
 fun CharSequence.isBlankAndEmpty(): Boolean {

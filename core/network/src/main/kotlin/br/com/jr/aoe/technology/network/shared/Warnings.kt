@@ -1,13 +1,11 @@
 package br.com.jr.aoe.technology.network.shared
 
 object Warnings {
-    const val CHECK_SIZE_PASSWORD = 8
     const val INVALID_EMAIL = "Este email é inválido!"
-    const val INVALID_PASSWORD = "Senhas não coincidem!"
-    const val PASSWORD_ERROR_SIZE = "Sua senha tem menos de 8 digitos!"
+    const val INVALID_PASSWORD = "Adicione, pelo menos uma letra e um número!"
+    const val PASSWORD_ERROR_SIZE = "Sua senha precisa ter, pelo menos 6 digitos!"
     const val NOT_BLANK_OR_EMPTY = "Preencha todos os campos!"
 }
-
 
 val enabledObserver =
     Observer(enabled = true, error = false, message = "")
