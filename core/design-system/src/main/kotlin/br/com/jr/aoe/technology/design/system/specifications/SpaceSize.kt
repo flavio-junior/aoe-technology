@@ -43,7 +43,7 @@ object SpaceSize {
     val spaceSize200: Dp = 200.dp
     val spaceSize236: Dp = 236.dp
     val spaceSize250: Dp = 250.dp
-    val spaceSize256: Dp = 250.dp
+    val spaceSize256: Dp = 256.dp
     val spaceSize300: Dp = 300.dp
     val spaceSize400: Dp = 400.dp
     val spaceSize500: Dp = 500.dp

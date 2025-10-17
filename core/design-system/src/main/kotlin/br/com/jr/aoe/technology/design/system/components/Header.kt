@@ -14,19 +14,21 @@ import br.com.jr.aoe.technology.design.system.theme.Themes
 
 @Composable
 fun Header(
+    modifier: Modifier = Modifier,
     label: String,
     align: Align = Align.START
 ) {
     if (align == Align.CENTER) {
         Title(
             label = label,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = Themes.size.spaceSize16),
             textAlign = TextAlign.Center
         )
     } else {
         Row(
-            modifier = Modifier
-                .padding(all = Themes.size.spaceSize16),
+            modifier = modifier.padding(vertical = Themes.size.spaceSize16),
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconDefault(iconName = IconName.ARROW_BACK)
