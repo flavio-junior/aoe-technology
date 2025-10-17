@@ -9,7 +9,7 @@ class AccountRepositoryImpl(
     private val accountRemoteDataSource: AccountRemoteDataSource
 ) : AccountRepository {
 
-    override fun signIn(): Flow<ObserveNetworkStateHandler<LoginResponseDTO>> {
+    override fun signIn(): Flow<ObserveNetworkStateHandler<List<LoginResponseDTO>>> {
         return accountRemoteDataSource.signIn()
     }
 }

@@ -12,7 +12,7 @@ class AccountRemoteDataSourceImpl(
     private val accountApiService: AccountApiService
 ) : AccountRemoteDataSource {
 
-    override fun signIn(): Flow<ObserveNetworkStateHandler<LoginResponseDTO>> {
+    override fun signIn(): Flow<ObserveNetworkStateHandler<List<LoginResponseDTO>>> {
         return toResultFlow(
             context = context,
             call = {

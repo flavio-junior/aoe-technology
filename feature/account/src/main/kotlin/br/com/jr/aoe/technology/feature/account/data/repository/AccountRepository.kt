@@ -5,5 +5,5 @@ import br.com.jr.aoe.technology.network.shared.ObserveNetworkStateHandler
 import kotlinx.coroutines.flow.Flow
 
 interface AccountRepository {
-    fun signIn(): Flow<ObserveNetworkStateHandler<LoginResponseDTO>>
+    fun signIn(): Flow<ObserveNetworkStateHandler<List<LoginResponseDTO>>>
 }
