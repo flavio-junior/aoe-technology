@@ -18,6 +18,10 @@ class PaymentViewModel(
         MutableStateFlow<UiState<List<PaymentResponseVO>>>(value = UiState.Init)
     val paymentsResponseVO = _paymentsResponseVO.asStateFlow()
 
+    init {
+        getAllPayments()
+    }
+
     override fun getAllPayments() {
         launchRequestWithResponse(
             request = paymentRepository.getAllPayments(),

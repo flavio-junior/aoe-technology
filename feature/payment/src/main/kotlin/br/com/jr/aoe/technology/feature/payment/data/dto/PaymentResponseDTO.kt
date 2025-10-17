@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 data class PaymentResponseDTO(
     val id: Long? = 0,
     val paymentDate: String? = "",
-    val electricityBill: Double? = 0.0
+    val electricityBill: String? = ""
 )

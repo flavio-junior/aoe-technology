@@ -3,6 +3,7 @@ package br.com.jr.aoe.technology.feature.payment.di
 import br.com.jr.aoe.technology.feature.payment.data.api.PaymentApiService
 import br.com.jr.aoe.technology.feature.payment.data.datasource.PaymentRemoteDataSource
 import br.com.jr.aoe.technology.feature.payment.data.datasource.PaymentRemoteDataSourceImpl
+import br.com.jr.aoe.technology.feature.payment.data.repository.PaymentRepository
 import br.com.jr.aoe.technology.feature.payment.data.repository.PaymentRepositoryImpl
 import br.com.jr.aoe.technology.feature.payment.domain.ConverterPayment
 import br.com.jr.aoe.technology.feature.payment.ui.viewmodel.PaymentViewModel
@@ -18,7 +19,7 @@ val paymentModule = module {
     single<PaymentRemoteDataSource> {
         PaymentRemoteDataSourceImpl(context = androidContext(), paymentApiService = get())
     }
-    single {
+    single<PaymentRepository> {
         PaymentRepositoryImpl(paymentRemoteDataSource = get())
     }
     single {

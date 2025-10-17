@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface PaymentApiService {
 
     @GET(value = "treinamento/payments")
-    fun getAllPayments(): Response<List<PaymentResponseDTO>>
+    suspend fun getAllPayments(): Response<List<PaymentResponseDTO>>
 }
