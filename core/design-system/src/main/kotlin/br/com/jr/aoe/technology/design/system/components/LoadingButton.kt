@@ -48,7 +48,7 @@ fun LoadingButton(
         }
         if (enabled) {
             listenerOnClick = false
-            CircularProgressIndicator()
+            CircularProgressIndicator(color = Themes.colors.background)
         } else {
             listenerOnClick = false
             Description(
