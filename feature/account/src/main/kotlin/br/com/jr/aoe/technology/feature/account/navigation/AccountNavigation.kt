@@ -10,6 +10,10 @@ fun NavGraphBuilder.accountNavigation(
     navController: NavHostController
 ) {
     composable<AppDestinations.Account> {
-        SignInScreen()
+        SignInScreen(
+            goToNextScreen = {
+                navController.navigate(route = it)
+            }
+        )
     }
 }

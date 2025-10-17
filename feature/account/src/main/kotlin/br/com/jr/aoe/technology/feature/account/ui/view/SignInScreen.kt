@@ -30,6 +30,7 @@ import br.com.jr.aoe.technology.design.system.settings.Settings
 import br.com.jr.aoe.technology.design.system.theme.Themes
 import br.com.jr.aoe.technology.feature.account.R
 import br.com.jr.aoe.technology.feature.account.ui.viewmodel.AccountViewModel
+import br.com.jr.aoe.technology.navigation.AppDestinations
 import br.com.jr.aoe.technology.network.shared.Exceptions
 import br.com.jr.aoe.technology.network.shared.Observer
 import br.com.jr.aoe.technology.network.shared.enabledObserver
@@ -40,6 +41,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun SignInScreen(
     goToAlternativeRoutes: (Exceptions) -> Unit = {},
+    goToNextScreen: (AppDestinations) -> Unit = {}
 ) {
     val viewModel: AccountViewModel = koinViewModel()
     var email: String by remember { mutableStateOf(value = Settings.EMPTY_TEXT) }
@@ -111,6 +113,9 @@ fun SignInScreen(
         goToAlternativeRoutes = goToAlternativeRoutes,
         onError = {
             observer = it
+        },
+        onResult = {
+            goToNextScreen(AppDestinations.Payment)
         }
     )
 }
