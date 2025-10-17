@@ -14,12 +14,23 @@
   - **` Postman `**
   - **` Git `**
   - **` GitHub `**
-  - **` CMD `**
+  - **` CMD `** 
 
 - **Contact Me:**
   - **Name: ` Flávio Júnior `**
   - **Description: ` Main Developer `**
   - **Contact: ` flaviojunior.work@gmail.com `**
+
+## **Important:**
+
+**API configuration this project requires you to define API endpoints in your local.properties file, which is not tracked by git. Please create this file in the root directory of the project if it doesn't exist. Add the following keys with their corresponding URLs:**
+
+- **local.properties:**
+
+```javascript
+- URL_API_DEV="https://60bd336db8ab3700175a03b3.mockapi.io"
+- URL_API_PROD="https://60bd336db8ab3700175a03b3.mockapi.io"
+```
 
 ### Commands of Gradle:
 - **Analysis the code: ` gradle detekt `**
