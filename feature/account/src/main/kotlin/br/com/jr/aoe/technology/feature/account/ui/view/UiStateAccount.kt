@@ -20,7 +20,7 @@ fun UiResponseSingInScreen(
     onResult: @Composable () -> Unit = {}
 ) {
     val uiState: UiState<LoginResponseVO>
-            by viewModel.loginResponseVO.collectAsStateWithLifecycle()
+        by viewModel.loginResponseVO.collectAsStateWithLifecycle()
     val localStorageViewModel: LocalStorageViewModel = koinViewModel()
     UiResponse(
         state = uiState,

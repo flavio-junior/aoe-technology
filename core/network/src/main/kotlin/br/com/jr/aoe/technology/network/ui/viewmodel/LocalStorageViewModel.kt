@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import br.com.jr.aoe.technology.common.account.vo.LoginResponseVO
 import br.com.jr.aoe.technology.network.data.repository.LocalStorageRepository
 import br.com.jr.aoe.technology.network.ui.view.UiState
+import br.com.jr.aoe.technology.network.utils.NetworkUtils
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -31,6 +33,7 @@ class LocalStorageViewModel(
 
     override fun getToken() {
         viewModelScope.launch {
+            delay(timeMillis = NetworkUtils.DELAY)
             _getTokenSaved.value = UiState.Loading
             val tokenSaved: LoginResponseVO? = localStorageRepository.getToken()
             _getTokenSaved.value = UiState.OnSuccess(response = tokenSaved)

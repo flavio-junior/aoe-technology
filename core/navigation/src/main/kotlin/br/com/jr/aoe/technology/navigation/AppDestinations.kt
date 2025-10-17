@@ -5,11 +5,11 @@ import kotlinx.serialization.Serializable
 sealed interface AppDestinations {
 
     @Serializable
+    data object SplashScreen : AppDestinations
+
+    @Serializable
     data object Account : AppDestinations
 
     @Serializable
     data object Payment : AppDestinations
-
-    @Serializable
-    data object UiShared : AppDestinations
 }

@@ -6,12 +6,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import br.com.jr.aoe.technology.feature.account.navigation.accountNavigation
 import br.com.jr.aoe.technology.feature.payment.navigation.paymentNavigation
-import br.com.jr.aoe.technology.feature.ui.shared.domain.uiSharedNavigation
+import br.com.jr.aoe.technology.feature.ui.shared.navigation.uiSharedNavigation
 
 @Composable
 fun NavigationGraphic(
     navController: NavHostController = rememberNavController(),
-    startDestination: AppDestinations = AppDestinations.Account
+    startDestination: AppDestinations = AppDestinations.SplashScreen
 ) {
     NavHost(navController = navController, startDestination = startDestination) {
         accountNavigation(navController = navController)

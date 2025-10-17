@@ -3,9 +3,9 @@ package br.com.jr.aoe.technology.network.ui.view
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import br.com.jr.aoe.technology.network.ui.viewmodel.LocalStorageViewModel
 import br.com.jr.aoe.technology.common.account.vo.LoginResponseVO
 import br.com.jr.aoe.technology.network.shared.Exceptions
+import br.com.jr.aoe.technology.network.ui.viewmodel.LocalStorageViewModel
 import org.koin.mp.KoinPlatform.getKoin
 
 @Composable
