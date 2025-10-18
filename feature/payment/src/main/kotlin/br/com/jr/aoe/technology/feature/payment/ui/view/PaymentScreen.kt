@@ -3,9 +3,13 @@ package br.com.jr.aoe.technology.feature.payment.ui.view
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -28,7 +32,12 @@ fun PaymentScreen(
 ) {
     val viewModel: PaymentViewModel = koinViewModel()
     val localStorageViewModel: LocalStorageViewModel = koinViewModel()
-    Column(modifier = Modifier.padding(horizontal = Themes.size.spaceSize16)) {
+    Column(
+        modifier = Modifier
+            .padding(horizontal = Themes.size.spaceSize16)
+            .verticalScroll(state = rememberScrollState()),
+        verticalArrangement = Arrangement.Center
+    ) {
         Header(
             label = stringResource(id = R.string.payments),
             onClick = {
@@ -40,18 +49,17 @@ fun PaymentScreen(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.spacedBy(space = Themes.size.spaceSize16)
         ) {
             UiResponseFindAllPaymentsScreen(
                 viewModel = viewModel,
                 onResult = {
+                    DetailsUser()
                     SubTitle(
                         label = stringResource(id = R.string.bills_paid),
-                        typeFont = TypeFont.BOLD,
+                        typeFont = TypeFont.EXTRA_BOLD,
                         textAlign = TextAlign.Start,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(bottom = Themes.size.spaceSize4)
+                        modifier = Modifier.fillMaxWidth()
                     )
                     it.forEach { payment ->
                         CardPayment(
@@ -62,5 +70,6 @@ fun PaymentScreen(
                 }
             )
         }
+        Spacer(modifier = Modifier.height(height = Themes.size.spaceSize64))
     }
 }

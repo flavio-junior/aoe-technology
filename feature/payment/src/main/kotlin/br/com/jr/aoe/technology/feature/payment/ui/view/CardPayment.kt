@@ -22,8 +22,7 @@ fun CardPayment(
     Row(verticalAlignment = Alignment.CenterVertically) {
         Column(
             modifier = Modifier.weight(weight = WeightSize.WEIGHT_SIZE_1),
-            verticalArrangement = Arrangement.spacedBy(space = Themes.size.spaceSize4)
-
+            verticalArrangement = Arrangement.spacedBy(space = Themes.size.spaceSize16)
         ) {
             Description(label = stringResource(id = R.string.electricity))
             Description(
