@@ -13,7 +13,12 @@ import br.com.jr.aoe.technology.design.system.theme.Themes
 import br.com.jr.aoe.technology.feature.payment.R
 
 @Composable
-fun DetailsUser() {
+fun DetailsUser(
+    balance: String,
+    client: String,
+    agency: String,
+    account: String
+) {
     SubTitle(
         label = stringResource(id = R.string.details_payments),
         typeFont = TypeFont.EXTRA_BOLD,
@@ -23,11 +28,21 @@ fun DetailsUser() {
     )
     Column {
         Description(
-            label = stringResource(id = R.string.client),
+            label = stringResource(id = R.string.client, client),
             modifier = Modifier.fillMaxWidth()
         )
         Description(
-            label = "${stringResource(id = R.string.agency)} | ${stringResource(id = R.string.account)}",
+            label = "${
+                stringResource(
+                    id = R.string.agency,
+                    agency
+                )
+            } | ${
+                stringResource(
+                    id = R.string.account,
+                    account
+                )
+            }",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = Themes.size.spaceSize24),
@@ -35,7 +50,7 @@ fun DetailsUser() {
             typeFont = TypeFont.LIGHT
         )
         Description(
-            label = stringResource(id = R.string.balance),
+            label = stringResource(id = R.string.balance, balance),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = Themes.size.spaceSize24),

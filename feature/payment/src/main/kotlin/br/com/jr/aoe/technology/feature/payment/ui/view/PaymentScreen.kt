@@ -54,7 +54,12 @@ fun PaymentScreen(
             UiResponseFindAllPaymentsScreen(
                 viewModel = viewModel,
                 onResult = {
-                    DetailsUser()
+                    DetailsUser(
+                        balance = "1.500,00",
+                        client = "Maria Silva",
+                        agency = "1234",
+                        account = "56789-0"
+                    )
                     SubTitle(
                         label = stringResource(id = R.string.bills_paid),
                         typeFont = TypeFont.EXTRA_BOLD,
