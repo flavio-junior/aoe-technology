@@ -6,13 +6,14 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import br.com.jr.aoe.technology.design.system.LoadingData
 import br.com.jr.aoe.technology.feature.payment.data.vo.PaymentResponseVO
 import br.com.jr.aoe.technology.feature.payment.ui.viewmodel.PaymentViewModel
+import br.com.jr.aoe.technology.network.shared.Observer
 import br.com.jr.aoe.technology.network.ui.view.UiResponse
 import br.com.jr.aoe.technology.network.ui.view.UiState
 
 @Composable
 fun UiResponseFindAllPaymentsScreen(
     viewModel: PaymentViewModel,
-    onError: @Composable () -> Unit = {},
+    onError: @Composable (Observer) -> Unit = {},
     goToAlternativeRoutes: () -> Unit = {},
     onResult: @Composable (List<PaymentResponseVO>) -> Unit = {}
 ) {
@@ -22,9 +23,7 @@ fun UiResponseFindAllPaymentsScreen(
         onLoading = {
             LoadingData()
         },
-        onError = {
-            onError
-        },
+        onError = onError,
         goToAlternativeRoutes = goToAlternativeRoutes,
         onSuccess = {
             onResult(it)

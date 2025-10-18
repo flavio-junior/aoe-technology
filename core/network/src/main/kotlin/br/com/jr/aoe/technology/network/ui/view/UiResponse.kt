@@ -9,7 +9,7 @@ import br.com.jr.aoe.technology.network.shared.Observer
 fun <T> UiResponse(
     state: UiState<T>,
     onLoading: @Composable () -> Unit = {},
-    onError: (Observer) -> Unit = {},
+    onError: @Composable (Observer) -> Unit = {},
     goToAlternativeRoutes: () -> Unit = {},
     onSuccess: @Composable (T) -> Unit = {}
 ) {

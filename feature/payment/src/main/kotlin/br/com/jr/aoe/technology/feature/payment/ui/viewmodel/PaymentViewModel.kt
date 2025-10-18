@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import br.com.jr.aoe.technology.feature.payment.data.repository.PaymentRepository
 import br.com.jr.aoe.technology.feature.payment.data.vo.PaymentResponseVO
 import br.com.jr.aoe.technology.feature.payment.domain.ConverterPayment
-import br.com.jr.aoe.technology.network.shared.DescriptionError
 import br.com.jr.aoe.technology.network.ui.view.UiState
 import br.com.jr.aoe.technology.network.ui.view.launchRequestWithResponse
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,6 +30,5 @@ class PaymentViewModel(
                 converter.convertAllPaymentsDtoToVO(payments = it)
             }
         )
-        _paymentsResponseVO.value = UiState.Error(error = DescriptionError())
     }
 }

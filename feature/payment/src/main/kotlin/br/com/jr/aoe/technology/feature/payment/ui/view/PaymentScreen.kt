@@ -19,6 +19,7 @@ import br.com.jr.aoe.technology.design.system.components.Header
 import br.com.jr.aoe.technology.design.system.components.SubTitle
 import br.com.jr.aoe.technology.design.system.components.Title
 import br.com.jr.aoe.technology.design.system.specifications.TypeFont
+import br.com.jr.aoe.technology.design.system.specifications.WeightSize
 import br.com.jr.aoe.technology.design.system.theme.Themes
 import br.com.jr.aoe.technology.feature.payment.R
 import br.com.jr.aoe.technology.feature.payment.ui.viewmodel.PaymentViewModel
@@ -36,9 +37,9 @@ fun PaymentScreen(
     val localStorageViewModel: LocalStorageViewModel = koinViewModel()
     Column(
         modifier = Modifier
-            .padding(horizontal = Themes.size.spaceSize16)
-            .verticalScroll(state = rememberScrollState()),
-        verticalArrangement = Arrangement.Center
+            .fillMaxSize()
+            .padding(horizontal = Themes.size.spaceSize16),
+        verticalArrangement = Arrangement.spacedBy(space = Themes.size.spaceSize16)
     ) {
         Header(
             label = stringResource(id = R.string.payments),
@@ -50,13 +51,17 @@ fun PaymentScreen(
         BackHandler(enabled = true, onBack = exitApp)
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(space = Themes.size.spaceSize16)
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(state = rememberScrollState())
+                .weight(weight = WeightSize.WEIGHT_SIZE_1),
+            verticalArrangement = Arrangement.Center
         ) {
             UiResponseFindAllPaymentsScreen(
                 viewModel = viewModel,
                 onError = {
-                    Title(label = stringResource(id = R.string.none_payment))
+                    if (it.error)
+                        Title(label = stringResource(id = R.string.none_payment))
                 },
                 goToAlternativeRoutes = goToAlternativeRoutes,
                 onResult = {
@@ -80,7 +85,7 @@ fun PaymentScreen(
                     }
                 }
             )
+            Spacer(modifier = Modifier.height(height = Themes.size.spaceSize64))
         }
-        Spacer(modifier = Modifier.height(height = Themes.size.spaceSize64))
     }
 }
