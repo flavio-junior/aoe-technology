@@ -39,6 +39,12 @@ inline fun <reified T> toResultFlow(
                     )
                 )
             }
+        } else {
+            emit(
+                value = ObserveNetworkStateHandler.Error(
+                    e = DescriptionError(type = ErrorType.INTERNAL)
+                )
+            )
         }
     }.flowOn(context = Dispatchers.IO)
 }

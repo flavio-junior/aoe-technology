@@ -7,4 +7,5 @@
     <string name="client">Cliente: %1$s</string>
     <string name="agency">Agência: %1$s</string>
     <string name="account">Conta: %1$s</string>
+    <string name="none_payment">Nenhum pagamento encontrado!</string>
 </resources>

@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 
+@Suppress("NestedBlockDepth")
 fun hasInternetConnection(context: Context?) = try {
     val connectivityManager: ConnectivityManager =
         context?.getSystemService(Context.CONNECTIVITY_SERVICE)

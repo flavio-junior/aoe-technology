@@ -5,7 +5,7 @@ import br.com.jr.aoe.technology.network.data.datasource.local.LocalStorageDataSo
 
 class LocalStorageRepositoryImpl(
     private val localStorageDataSource: LocalStorageDataSource
-): LocalStorageRepository {
+) : LocalStorageRepository {
 
     override suspend fun saveToken(loginResponseVO: LoginResponseVO) {
         localStorageDataSource.saveToken(loginResponseVO = loginResponseVO)

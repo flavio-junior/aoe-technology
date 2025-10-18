@@ -5,7 +5,6 @@ import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import br.com.jr.aoe.technology.common.account.vo.LoginResponseVO
 import br.com.jr.aoe.technology.feature.account.ui.viewmodel.AccountViewModel
-import br.com.jr.aoe.technology.network.shared.Exceptions
 import br.com.jr.aoe.technology.network.shared.Observer
 import br.com.jr.aoe.technology.network.ui.view.UiResponse
 import br.com.jr.aoe.technology.network.ui.view.UiState
@@ -15,7 +14,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun UiResponseSingInScreen(
     viewModel: AccountViewModel,
-    goToAlternativeRoutes: (Exceptions) -> Unit = {},
+    goToAlternativeRoutes: () -> Unit = {},
     onError: (Observer) -> Unit = {},
     onResult: @Composable () -> Unit = {}
 ) {

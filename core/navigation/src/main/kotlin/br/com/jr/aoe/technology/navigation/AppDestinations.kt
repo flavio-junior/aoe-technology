@@ -12,4 +12,7 @@ sealed interface AppDestinations {
 
     @Serializable
     data object Payment : AppDestinations
+
+    @Serializable
+    data object ErrorScreen : AppDestinations
 }

@@ -15,6 +15,9 @@ fun NavGraphBuilder.paymentNavigation(
             goToSignInScreen = {
                 navController.navigate(route = it)
             },
+            goToAlternativeRoutes = {
+                navController.navigate(route = AppDestinations.ErrorScreen)
+            },
             exitApp = {
                 navController.finishApp()
             }

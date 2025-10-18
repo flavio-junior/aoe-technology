@@ -1,0 +1,4 @@
+<resources>
+    <string name="internal_error">Ocorreu um erro interno do sistema!</string>
+    <string name="try_again">Tentar novamente</string>
+</resources>

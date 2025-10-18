@@ -40,7 +40,9 @@ class LocalStorageDataSourceImpl(
                 customerName = decryptMessage(cryptography = currentPreferences[PREFERENCES_CUSTOMER_NAME]),
                 accountNumber = decryptMessage(cryptography = currentPreferences[PREFERENCES_ACCOUNT_NUMBER]),
                 branchNumber = decryptMessage(cryptography = currentPreferences[PREFERENCES_BRANCH_NUMBER]),
-                checkingAccountBalance = decryptMessage(cryptography = currentPreferences[PREFERENCES_CHECKING_ACCOUNT_BALANCE]),
+                checkingAccountBalance = decryptMessage(
+                    cryptography = currentPreferences[PREFERENCES_CHECKING_ACCOUNT_BALANCE]
+                ),
             )
         }.firstOrNull()
     }
@@ -64,5 +66,3 @@ class LocalStorageDataSourceImpl(
             byteArrayPreferencesKey(name = "checking_account_balance")
     }
 }
-
-

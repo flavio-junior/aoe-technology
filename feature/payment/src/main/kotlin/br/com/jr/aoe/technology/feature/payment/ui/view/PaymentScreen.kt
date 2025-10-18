@@ -17,6 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import br.com.jr.aoe.technology.design.system.components.Header
 import br.com.jr.aoe.technology.design.system.components.SubTitle
+import br.com.jr.aoe.technology.design.system.components.Title
 import br.com.jr.aoe.technology.design.system.specifications.TypeFont
 import br.com.jr.aoe.technology.design.system.theme.Themes
 import br.com.jr.aoe.technology.feature.payment.R
@@ -28,6 +29,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun PaymentScreen(
     goToSignInScreen: (AppDestinations) -> Unit = {},
+    goToAlternativeRoutes: () -> Unit = {},
     exitApp: () -> Unit = {}
 ) {
     val viewModel: PaymentViewModel = koinViewModel()
@@ -53,6 +55,10 @@ fun PaymentScreen(
         ) {
             UiResponseFindAllPaymentsScreen(
                 viewModel = viewModel,
+                onError = {
+                    Title(label = stringResource(id = R.string.none_payment))
+                },
+                goToAlternativeRoutes = goToAlternativeRoutes,
                 onResult = {
                     DetailsUser(
                         balance = "1.500,00",

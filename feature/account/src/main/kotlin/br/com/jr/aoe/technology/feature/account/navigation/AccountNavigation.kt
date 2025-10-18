@@ -13,6 +13,9 @@ fun NavGraphBuilder.accountNavigation(
         SignInScreen(
             goToNextScreen = {
                 navController.navigate(route = it)
+            },
+            goToAlternativeRoutes = {
+                navController.navigate(route = AppDestinations.ErrorScreen)
             }
         )
     }

@@ -3,7 +3,6 @@ package br.com.jr.aoe.technology.network.ui.view
 import androidx.compose.runtime.Composable
 import br.com.jr.aoe.technology.network.shared.DescriptionError
 import br.com.jr.aoe.technology.network.shared.ErrorType
-import br.com.jr.aoe.technology.network.shared.Exceptions
 import br.com.jr.aoe.technology.network.shared.Observer
 
 @Composable
@@ -11,7 +10,7 @@ fun <T> UiResponse(
     state: UiState<T>,
     onLoading: @Composable () -> Unit = {},
     onError: (Observer) -> Unit = {},
-    goToAlternativeRoutes: (Exceptions) -> Unit = {},
+    goToAlternativeRoutes: () -> Unit = {},
     onSuccess: @Composable (T) -> Unit = {}
 ) {
     when (state) {
@@ -27,6 +26,7 @@ fun <T> UiResponse(
                 }
 
                 ErrorType.INTERNAL, ErrorType.EXTERNAL, ErrorType.SERVER -> {
+                    goToAlternativeRoutes()
                 }
             }
         }
