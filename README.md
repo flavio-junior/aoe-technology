@@ -32,6 +32,8 @@
 - URL_API_PROD="https://60bd336db8ab3700175a03b3.mockapi.io"
 ```
 
+- **[Technical Requirements](https://github.com/flavio-junior/aoe-technology/blob/main/specifications.md)**
+
 ### Commands of Gradle:
 - **Analysis the code: ` gradle detekt `**
 - **Clean project: ` gradle detekt --auto-correct `**
