@@ -81,3 +81,24 @@ Criar um app bancário simples com 2 telas utilizando Kotlin, Jetpack Compose e 
           }
       ]
      ```
+
+# 🛠️ Requisitos Técnicos:
+- **Kotlin.**
+- **Jetpack Compose.**
+- **MVVM (ViewModel, StateFlow).**
+- **Retrofit + Coroutines para chamadas de API.**
+- **Navigation Compose para navegação entre telas.**
+- **Material Design 3 (ou Theme padrão).**
+- **Layout responsivo.**
+- **README curto explicando como rodar o projeto.**
+
+# Bônus (opcional):
+- **Integração com Datastore após Login para guardar dados do usuário → /treinamento/Login.**
+- **Integração com ROOM após consulta → /treinamento/payments.**
+- **Cria e integrar pipelines CI/CD com Github Actions.**
+- **Testes Unitários.**
+- **Testes de Integração.**
+
+# 🚀 Entrega:
+- **Subir o projeto no GitHub (público ou privado com acesso).**
+- **Enviar o link ao concluir ou ao final do prazo.**
