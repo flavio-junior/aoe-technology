@@ -1,8 +1,11 @@
 package br.com.jr.aoe.technology.feature.payment.di
 
+import androidx.room.Room
 import br.com.jr.aoe.technology.feature.payment.data.api.PaymentApiService
-import br.com.jr.aoe.technology.feature.payment.data.datasource.PaymentRemoteDataSource
-import br.com.jr.aoe.technology.feature.payment.data.datasource.PaymentRemoteDataSourceImpl
+import br.com.jr.aoe.technology.feature.payment.data.datasource.local.PaymentLocalDataSource
+import br.com.jr.aoe.technology.feature.payment.data.datasource.local.PaymentLocalDataSourceImpl
+import br.com.jr.aoe.technology.feature.payment.data.datasource.remote.PaymentRemoteDataSource
+import br.com.jr.aoe.technology.feature.payment.data.datasource.remote.PaymentRemoteDataSourceImpl
 import br.com.jr.aoe.technology.feature.payment.data.repository.PaymentRepository
 import br.com.jr.aoe.technology.feature.payment.data.repository.PaymentRepositoryImpl
 import br.com.jr.aoe.technology.feature.payment.domain.ConverterPayment
@@ -13,6 +16,16 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 
 val paymentModule = module {
+    single<PaymentLocalDataSource> {
+        get<PaymentLocalDataSourceImpl>().paymentDao()
+    }
+    single {
+        Room.databaseBuilder(
+            context = androidContext(),
+            klass = PaymentLocalDataSourceImpl::class.java,
+            name = "payment_database"
+        ).build()
+    }
     single {
         get<Retrofit>().create(PaymentApiService::class.java)
     }
@@ -20,7 +33,10 @@ val paymentModule = module {
         PaymentRemoteDataSourceImpl(context = androidContext(), paymentApiService = get())
     }
     single<PaymentRepository> {
-        PaymentRepositoryImpl(paymentRemoteDataSource = get())
+        PaymentRepositoryImpl(
+            paymentRemoteDataSource = get(),
+            paymentLocalDataSource = get()
+        )
     }
     single {
         ConverterPayment()

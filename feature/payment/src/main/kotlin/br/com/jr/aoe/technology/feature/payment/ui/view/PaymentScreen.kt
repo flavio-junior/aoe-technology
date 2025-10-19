@@ -60,8 +60,9 @@ fun PaymentScreen(
             UiResponseFindAllPaymentsScreen(
                 viewModel = viewModel,
                 onError = {
-                    if (it.error)
+                    if (it.error) {
                         Title(label = stringResource(id = R.string.none_payment))
+                    }
                 },
                 goToAlternativeRoutes = goToAlternativeRoutes,
                 onResult = {

@@ -1,4 +1,4 @@
-package br.com.jr.aoe.technology.feature.payment.data.datasource
+package br.com.jr.aoe.technology.feature.payment.data.datasource.remote
 
 import android.content.Context
 import br.com.jr.aoe.technology.feature.payment.data.api.PaymentApiService
@@ -12,11 +12,11 @@ class PaymentRemoteDataSourceImpl(
     private val paymentApiService: PaymentApiService
 ) : PaymentRemoteDataSource {
 
-    override fun getAllPayments(): Flow<ObserveNetworkStateHandler<List<PaymentResponseDTO>>> {
+    override fun getAllRemotePayments(): Flow<ObserveNetworkStateHandler<List<PaymentResponseDTO>>> {
         return toResultFlow(
             context = context,
             call = {
-                paymentApiService.getAllPayments()
+                paymentApiService.getAllRemotePayments()
             }
         )
     }

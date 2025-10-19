@@ -3,6 +3,7 @@ import br.com.jr.aoe.technology.build.logic.namespace.NameSpace
 
 plugins {
     id(id = "br.com.jr.aoe.technology.library")
+    id(id = "com.google.devtools.ksp")
     alias(notation = libs.plugins.jetbrains.kotlin.serialization)
 }
 
@@ -13,6 +14,9 @@ android {
 }
 
 dependencies {
+    implementation(dependencyNotation = libs.androidx.room.runtime)
+    ksp(dependencyNotation = libs.androidx.room.compiler)
+    implementation(dependencyNotation = libs.androidx.room.ktx)
     implementation(dependencyNotation = libs.kotlinx.serialization.json)
     implementation(dependencyNotation = platform(libs.androidx.compose.bom))
     implementation(dependencyNotation = libs.androidx.compose.material3)

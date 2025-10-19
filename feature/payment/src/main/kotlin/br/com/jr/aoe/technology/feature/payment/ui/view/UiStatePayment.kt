@@ -17,16 +17,24 @@ fun UiResponseFindAllPaymentsScreen(
     goToAlternativeRoutes: () -> Unit = {},
     onResult: @Composable (List<PaymentResponseVO>) -> Unit = {}
 ) {
-    val uiState: UiState<List<PaymentResponseVO>> by viewModel.paymentsResponseVO.collectAsStateWithLifecycle()
-    UiResponse(
-        state = uiState,
-        onLoading = {
-            LoadingData()
-        },
-        onError = onError,
-        goToAlternativeRoutes = goToAlternativeRoutes,
-        onSuccess = {
-            onResult(it)
-        }
-    )
+    val payments by viewModel.getAllLocalPayments.collectAsStateWithLifecycle()
+    if (payments.isEmpty()) {
+        viewModel.getAllRemotePayments()
+        val uiState: UiState<List<PaymentResponseVO>>
+            by viewModel.getAllRemotePayments.collectAsStateWithLifecycle()
+        UiResponse(
+            state = uiState,
+            onLoading = {
+                LoadingData()
+            },
+            onError = onError,
+            goToAlternativeRoutes = goToAlternativeRoutes,
+            onSuccess = {
+                viewModel.saveAllPayments(paymentResponseVO = it)
+                onResult(it)
+            }
+        )
+    } else {
+        onResult(payments)
+    }
 }
