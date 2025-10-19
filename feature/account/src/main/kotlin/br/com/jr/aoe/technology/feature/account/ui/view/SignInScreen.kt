@@ -1,5 +1,6 @@
 package br.com.jr.aoe.technology.feature.account.ui.view
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -44,7 +45,8 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun SignInScreen(
     goToAlternativeRoutes: () -> Unit = {},
-    goToNextScreen: (AppDestinations) -> Unit = {}
+    goToNextScreen: (AppDestinations) -> Unit = {},
+    exitApp: () -> Unit = {}
 ) {
     val viewModel: AccountViewModel = koinViewModel()
     var email: String by remember { mutableStateOf(value = Settings.EMPTY_TEXT) }
@@ -69,6 +71,7 @@ fun SignInScreen(
             .verticalScroll(state = rememberScrollState())
             .padding(horizontal = Themes.size.spaceSize16)
     ) {
+        BackHandler(enabled = true, onBack = exitApp)
         Header(
             label = stringResource(id = R.string.sign_in),
             align = Align.CENTER

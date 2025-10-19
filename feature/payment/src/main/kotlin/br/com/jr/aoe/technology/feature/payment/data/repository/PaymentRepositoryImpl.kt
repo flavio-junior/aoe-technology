@@ -24,7 +24,7 @@ class PaymentRepositoryImpl(
         return paymentRemoteDataSource.getAllRemotePayments()
     }
 
-    override suspend fun deletePayment(payment: Payment) {
-        paymentLocalDataSource.deletePayment(payment = payment)
+    override suspend fun deleteAllPayments() {
+        paymentLocalDataSource.deleteAllPayments()
     }
 }

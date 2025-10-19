@@ -9,5 +9,5 @@ interface PaymentRepository {
     suspend fun saveAllPayments(vararg payments: Payment)
     suspend fun getAllLocalPayments(): List<Payment>
     fun getAllRemotePayments(): Flow<ObserveNetworkStateHandler<List<PaymentResponseDTO>>>
-    suspend fun deletePayment(payment: Payment)
+    suspend fun deleteAllPayments()
 }

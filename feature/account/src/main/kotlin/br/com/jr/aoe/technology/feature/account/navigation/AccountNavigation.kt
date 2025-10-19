@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import br.com.jr.aoe.technology.feature.account.ui.view.SignInScreen
 import br.com.jr.aoe.technology.navigation.AppDestinations
+import br.com.jr.aoe.technology.navigation.finishApp
 
 fun NavGraphBuilder.accountNavigation(
     navController: NavHostController
@@ -16,6 +17,9 @@ fun NavGraphBuilder.accountNavigation(
             },
             goToAlternativeRoutes = {
                 navController.navigate(route = AppDestinations.ErrorScreen)
+            },
+            exitApp = {
+                navController.finishApp()
             }
         )
     }

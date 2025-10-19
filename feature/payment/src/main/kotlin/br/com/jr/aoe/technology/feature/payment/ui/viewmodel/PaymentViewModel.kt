@@ -3,7 +3,6 @@ package br.com.jr.aoe.technology.feature.payment.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.jr.aoe.technology.feature.payment.data.repository.PaymentRepository
-import br.com.jr.aoe.technology.feature.payment.data.storage.Payment
 import br.com.jr.aoe.technology.feature.payment.data.vo.PaymentResponseVO
 import br.com.jr.aoe.technology.feature.payment.domain.ConverterPayment
 import br.com.jr.aoe.technology.network.ui.view.UiState
@@ -55,9 +54,9 @@ class PaymentViewModel(
         )
     }
 
-    override fun deletePayment(payment: Payment) {
+    override fun deletePayment() {
         viewModelScope.launch {
-            paymentRepository.deletePayment(payment = payment)
+            paymentRepository.deleteAllPayments()
         }
     }
 }

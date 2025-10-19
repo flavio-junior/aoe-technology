@@ -33,8 +33,8 @@ fun PaymentScreen(
     goToAlternativeRoutes: () -> Unit = {},
     exitApp: () -> Unit = {}
 ) {
-    val viewModel: PaymentViewModel = koinViewModel()
     val localStorageViewModel: LocalStorageViewModel = koinViewModel()
+    val viewModel: PaymentViewModel = koinViewModel()
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -45,6 +45,7 @@ fun PaymentScreen(
             label = stringResource(id = R.string.payments),
             onClick = {
                 localStorageViewModel.cleanToken()
+                viewModel.deletePayment()
                 goToSignInScreen(AppDestinations.SplashScreen)
             }
         )
