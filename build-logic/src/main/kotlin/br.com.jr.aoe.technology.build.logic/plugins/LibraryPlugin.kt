@@ -3,6 +3,7 @@ package br.com.jr.aoe.technology.build.logic.plugins
 import br.com.jr.aoe.technology.build.logic.config.AppConfig
 import br.com.jr.aoe.technology.build.logic.extensions.getPlugin
 import br.com.jr.aoe.technology.build.logic.generic.installCommonDependencies
+import br.com.jr.aoe.technology.build.logic.libraries.libraries
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -22,11 +23,6 @@ class LibraryPlugin : Plugin<Project> {
     }
 
     private fun installPlugins(target: Project) {
-        val libraries = listOf(
-            "android-library",
-            "kotlin-android",
-            "kotlin-compose"
-        )
         libraries.forEach {
             target.pluginManager.apply(target.getPlugin(alias = it).pluginId)
         }

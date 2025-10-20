@@ -19,9 +19,5 @@ dependencies {
     implementation(dependencyNotation = project(path = Modules.FEATURE_ACCOUNT))
     implementation(dependencyNotation = project(path = Modules.FEATURE_PAYMENT))
     implementation(dependencyNotation = project(path = Modules.FEATURE_UI_SHARED))
-    testImplementation(dependencyNotation = libs.junit)
-    androidTestImplementation(dependencyNotation = libs.androidx.junit)
-    androidTestImplementation(dependencyNotation = libs.androidx.espresso.core)
     androidTestImplementation(dependencyNotation = platform(libs.androidx.compose.bom))
-    androidTestImplementation(dependencyNotation = libs.androidx.compose.ui.test.junit4)
 }
