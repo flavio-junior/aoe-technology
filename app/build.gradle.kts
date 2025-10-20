@@ -16,7 +16,6 @@ dependencies {
     implementation(dependencyNotation = project(path = Modules.CORE_NAVIGATION))
     implementation(dependencyNotation = project(path = Modules.CORE_NETWORK))
     implementation(dependencyNotation = project(path = Modules.FEATURE_ACCOUNT))
-    implementation(dependencyNotation = project(path = Modules.FEATURE_ACCOUNT))
     implementation(dependencyNotation = project(path = Modules.FEATURE_PAYMENT))
     implementation(dependencyNotation = project(path = Modules.FEATURE_UI_SHARED))
     androidTestImplementation(dependencyNotation = platform(libs.androidx.compose.bom))
