@@ -4,52 +4,28 @@ import br.com.jr.aoe.technology.build.logic.extensions.getLibrary
 import org.gradle.api.Project
 
 fun installCommonDependencies(target: Project) {
-    target.dependencies.apply {
-        add(
+    val libraries = listOf(
+        "androidx-core-ktx",
+        "androidx-lifecycle-runtime-ktx",
+        "androidx-activity-compose",
+        "androidx-compose-ui",
+        "androidx-compose-ui-graphics",
+        "androidx-compose-ui-tooling-preview"
+    )
+    val debugLibraries = listOf(
+        "androidx-compose-ui-tooling",
+        "androidx-compose-ui-test-manifest"
+    )
+    libraries.forEach {
+        target.dependencies.add(
             "implementation",
-            target.getLibrary(alias = "androidx-core-ktx")
+            target.getLibrary(alias = it)
         )
     }
-    target.dependencies.apply {
-        add(
-            "implementation",
-            target.getLibrary(alias = "androidx-lifecycle-runtime-ktx")
-        )
-    }
-    target.dependencies.apply {
-        add(
-            "implementation",
-            target.getLibrary(alias = "androidx-activity-compose")
-        )
-    }
-    target.dependencies.apply {
-        add(
-            "implementation",
-            target.getLibrary(alias = "androidx-compose-ui")
-        )
-    }
-    target.dependencies.apply {
-        add(
-            "implementation",
-            target.getLibrary(alias = "androidx-compose-ui-graphics")
-        )
-    }
-    target.dependencies.apply {
-        add(
-            "implementation",
-            target.getLibrary(alias = "androidx-compose-ui-tooling-preview")
-        )
-    }
-    target.dependencies.apply {
-        add(
+    debugLibraries.forEach {
+        target.dependencies.add(
             "debugImplementation",
-            target.getLibrary(alias = "androidx-compose-ui-tooling")
-        )
-    }
-    target.dependencies.apply {
-        add(
-            "debugImplementation",
-            target.getLibrary(alias = "androidx-compose-ui-test-manifest")
+            target.getLibrary(alias = it)
         )
     }
 }

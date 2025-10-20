@@ -22,15 +22,14 @@ class AppPlugin : Plugin<Project> {
     }
 
     private fun installPlugins(target: Project) {
-        target.pluginManager.apply(
-            target.getPlugin(alias = "android-application").pluginId
+        val libraries = listOf(
+            "android-application",
+            "kotlin-android",
+            "kotlin-compose"
         )
-        target.pluginManager.apply(
-            target.getPlugin(alias = "kotlin-android").pluginId
-        )
-        target.pluginManager.apply(
-            target.getPlugin(alias = "kotlin-compose").pluginId
-        )
+        libraries.forEach {
+            target.pluginManager.apply(target.getPlugin(alias = it).pluginId)
+        }
     }
 
     private fun androidSettings(target: Project) {
