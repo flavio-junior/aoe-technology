@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import br.com.jr.aoe.technology.design.system.components.LoadingButton
 import br.com.jr.aoe.technology.design.system.components.Title
 import br.com.jr.aoe.technology.design.system.theme.Themes
@@ -31,4 +32,10 @@ fun ErrorScreen(
             onClick = tryAgain
         )
     }
+}
+
+@Composable
+@Preview(apiLevel = 35, showBackground = true)
+private fun ErrorScreenPreview() {
+    ErrorScreen()
 }

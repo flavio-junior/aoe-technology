@@ -100,7 +100,7 @@ fun InfoText(
 }
 
 @Composable
-@Preview
+@Preview(apiLevel = 35, showBackground = true)
 private fun ShowTextPreview() {
     Title(label = "Test")
 }
